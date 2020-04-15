@@ -371,4 +371,319 @@ function getProperty(obj,key){
   var output = getLastElementOfProperty(obj,'key');
   console.log(output); // 5
   
+  //Given an object and a key , returns an array containing all the odd length word elements of the array located at the given key
   
+  function getOddLengthWordsAtProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){
+      return [];
+    }
+    if (obj[key] === undefined){
+      return [];
+    }
+    var oddLengthWords = [];
+    for (var i = 0; i < obj[key].length; i++){
+      if(obj[key][i].length % 2 === 1){
+        oddLengthWords.push(obj[key][i]);
+      }
+    }
+    return oddLengthWords;
+  }
+  
+  var obj = {
+    key: ['It', 'has', 'some', 'words']
+  };
+  
+  var output = getOddLengthWordsAtProperty(obj,'key');
+  console.log(output); //['has', 'words']
+  
+  //Given an object and a key, return the average of all the elements in the array located at the given key
+  
+  function getAverageOfElementsAtProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){
+      return 0;
+    }
+    if(obj[key] === undefined) {
+      return 0;
+    }
+    if(obj[key].length === 0){
+      return 0;
+    }
+    var sum = 0;
+    for (var i = 0; i < obj[key].length; i++){
+      sum+=obj[key][i];
+    }
+    return sum/ obj[key].length;
+  }
+  
+  var obj = {
+    key: [1,2,3]
+  };
+  
+  var output = getAverageOfElementsAtProperty(obj,'key');
+  console.log(output); //2
+  
+  //Given an object and a key, returns an array containing all the even length word elements of the array located at the given key
+  
+  function getEvenLengthWordsAtProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){
+      return [];
+    }
+    if (obj[key] === undefined){
+      return [];
+    }
+    var evenArray = [];
+    for (var i = 0; i < obj[key].length; i++){
+      if(obj[key][i].length % 2 === 0){
+        evenArray.push(obj[key][i]);
+      }
+    }
+    return evenArray;
+  }
+  
+  var obj = {
+    key: ['a', 'long', 'game']
+  };
+  
+  var output = getEvenLengthWordsAtProperty(obj,'key');
+  console.log(output); // ['long', 'game']
+  
+  
+  //Given an object and a key, return an array containing all the squared elements of the array at the given key
+  
+  function getSquaredElementsAtProperty(obj,key){
+    if(Array.isArray(obj[key])=== false){
+      return [];
+    }
+    if(obj[key] === 0){
+      return [];
+    }
+    if(obj[key].length === 0){
+      return [];
+    }
+    var squared = [];
+    for (var i = 0; i < obj[key].length; i++){
+      var squaredElement = obj[key][i] * obj[key][i];
+      squared.push(squaredElement);
+    }
+    return squared;
+  }
+  
+  var obj = {
+    key: [2,1,5]
+  };
+  
+  var output = getSquaredElementsAtProperty(obj,'key');
+  console.log(output); //[4,1,25]
+  
+  //Given an object and a key, returns an array containing all the odd elements of the array located at the given key
+  function getOddElementsAtProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){
+      return [];
+    } 
+    if(obj[key] === undefined){
+      return [];
+    }
+    if(obj[key].length === 0){
+      return [];
+    }
+    var oddNumbers = [];
+    for(var i = 0; i < obj[key].length; i++){
+      if(obj[key][i] % 2 === 1){
+        oddNumbers.push(obj[key][i]);
+      }
+    }
+    return oddNumbers;
+  }
+  
+  var obj = {
+    key: [1,2,3,4,5]
+  };
+  
+  var output = getOddElementsAtProperty(obj,'key');
+  console.log(output); //[1,3,5]
+  
+  //Given an object and a key, returns an array containing all the even elements of the array located at the given key
+  
+  function getEvenElementsAtProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){
+      return [];
+    }
+    if(obj[key] === undefined){
+      return [];
+    }
+    if(obj[key].length === 0){
+      return [];
+    }
+    var evenNumbers = [];
+    for (var i = 0; i < obj[key].length; i++){
+      if(obj[key][i] % 2 === 0){
+        evenNumbers.push(obj[key][i]);
+      }
+    }
+    return evenNumbers;
+  }
+  
+  var obj = {
+    key: [1000, 11, 50, 17]
+  };
+  
+  var output = getEvenElementsAtProperty(obj,'key');
+  console.log(output); //[1000,50]
+  
+  //Given an object and a key, return the smallest element in the array located at the given key
+  function getSmallestElementAtProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){
+      return undefined;
+    }
+    if(obj[key] === undefined){
+      return undefined;
+    }
+    if(obj[key].length === 0){
+      return undefined;
+    }
+    var smallestElement = obj[key][0];
+    for (var i = 0; i < obj[key].length; i++){
+      if(obj[key][i] < smallestElement){
+        smallestElement = obj[key][i];
+      }
+    }
+    return smallestElement;
+  }
+  
+  var obj = {
+    key: [2,1,5]
+  };
+  
+  var output = getSmallestElementAtProperty(obj, 'key');
+  console.log(output); // 1
+  
+  //Given an object and a key, return the largest element in the array located at the given key
+  function getLargestElementAtProperty(obj,key){
+  
+    if(Array.isArray(obj[key])=== false){
+    return undefined;
+    }
+    if(obj[key] === 0){
+    return undefined;
+    }
+    if(obj[key].length === 0){
+    return undefined;
+    }
+    var largeNumbers = obj[key][0];
+    for(var i = 0; i < obj[key].length; i++){
+    if(obj[key][i] > largeNumbers){
+      largeNumbers = obj[key][i];
+    }
+    }
+    return largeNumbers;
+  }
+  
+  var obj = {
+    key: [1,2,4]
+  };
+  
+  var output = getLargestElementAtProperty(obj,'key');
+  console.log(output); //4
+  
+  //Given a object and a key, return an array containing all but the last element of the array located at the given key.
+  
+  function getAllButLastElementOfProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){ //If property at the given key is not an array
+      return [];
+    }
+    if(obj[key].length === 0){ //If the array is empty
+      return [];
+    }
+    if(obj[key] === undefined){ //No property at the key
+      return [];
+    }
+    obj[key].pop();
+    return obj[key];
+  }
+  
+  
+  var obj = {
+    key: [1,2,3]
+  };
+  
+  var output = getAllButLastElementOfProperty(obj,'key');
+  console.log(output); //[1,2]
+  
+  //Given a object, a key, and a numberical index. Return the value of the element at the given index of the array located within the given object at the given key
+  
+  function getElementOfArrayProperty(obj,key,index){
+    if(Array.isArray(obj[key]) === false){
+      return undefined;
+    }
+    if(obj[key] === 0){
+      return undefined;
+    }
+    if(obj[key].length === 0){
+      return undefined;
+    }
+    var specificElement = obj[key][0];
+    for (var i = 0; i < obj[key].length; i++){
+      if(obj[key][i] === obj[key][i]){
+        specificElement = obj[key][index];
+      }
+    }
+    return specificElement;
+  }
+  
+  var obj = {
+    key: ['Jamil', 'Albrey']
+  };
+  
+  var output = getElementOfArrayProperty(obj, 'key', 0);
+  console.log(output); //'Jamil'
+  
+  //Given an object and a key, return the product of all the elements in the array located at the given key
+  
+  function getProductOfAllElementsAtProperty(obj,key){
+    if(Array.isArray(obj[key]) === false){
+      return 0;
+    }
+    if(obj[key] === undefined){
+      return 0;
+    }
+    if(obj[key].length === 0){
+      return 0;
+    }
+    var product = 1; 
+    for (var i  = 0; i < obj[key].length; i++){
+      product *= obj[key][i];
+    }
+    return product;
+  }
+  
+  var obj = {
+    key: [1,2,3,4]
+  };
+  var output = getProductOfAllElementsAtProperty(obj,'key');
+  console.log(output); //24
+  
+  //Given an object and a key, return the sum of all the elements in the array located at the given key
+  
+  function getSumOfAllElementsAtProperty(obj,key){
+    if(obj[key] === undefined){
+      return 0;
+    }
+    if(Array.isArray(obj[key])===false){
+      return 0;
+    }
+    if(obj[key].length === 0){
+      return 0;
+    }
+    var sum = 0;
+    for(var i = 0; i < obj[key].length; i++){
+      sum+=obj[key][i];
+    }
+    return sum;
+  }
+  
+  var obj = {
+    key: [4,1,8]
+  };
+  
+  var output = getSumOfAllElementsAtProperty(obj,'key');
+  console.log(output); //13
