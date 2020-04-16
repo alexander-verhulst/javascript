@@ -687,3 +687,90 @@ function getProperty(obj,key){
   
   var output = getSumOfAllElementsAtProperty(obj,'key');
   console.log(output); //13
+
+  //Given a object, use a function to return an array that is made up of the object's keys. Do not use the Object.keys to solve. 
+
+function getAllKeys(obj){
+  var keys = [];
+  for (var key in obj){
+    keys.push(key);
+  }
+  return keys;
+}
+
+var obj1 = {
+  name: 'Sam',
+  age: 25,
+  hasPets: true
+};
+
+var result1 = getAllKeys(obj1);
+console.log(result1);
+
+var obj2 = {
+  a: 'a',
+  number: 11,
+  hungry: true,
+  grammyWins: 1
+};
+
+var result2 = getAllKeys(obj2);
+console.log(result2);
+
+//Given a object, use a function to return an array that is made up of the object's values. Do not use the Object.values to solve. 
+
+function listAllValues(obj){
+  var values = [];
+  for (var key in obj){
+    values.push(obj[key]);
+  }
+  return values;
+}
+
+
+var obj1 = {
+  name: 'Krysten',
+  age: 33,
+  hasPets: false
+};
+
+var result1 = listAllValues(obj1);
+console.log(result1);
+
+var obj2 = {
+  a: 'a',
+  number: 11,
+  hungry: true,
+  grammyWins: 1
+};
+
+var result2 = listAllValues(obj2);
+console.log(result2);
+
+
+//Write a function that converts an object literal into an array of arrays:
+
+function convertObjectToArray(obj){
+  var container = [];
+  for (var key in obj){
+    var innerArray = [key, obj[key]];
+    container.push(innerArray);
+  }
+  return container;
+}
+
+var input = {
+  name: 'Holly', 
+  age: 35,
+  role: 'producer'
+};
+
+var result1 = convertObjectToArray(input);
+console.log(result1);
+
+
+
+
+
+
+
