@@ -685,4 +685,187 @@ function getNthElement(array,n){
   var output = findShortestWordAmongMixedElements([4,'two', 2, 'three']);
   console.log(output); //'two'
 
-  
+  //=====================================================
+  /*Given an array of mixed elements, return the smallest
+    number withing the given array
+  */
+  //======================================================
+
+
+  function findSmallestNumberAmongMixedElements(arr){
+      if(arr.length === 0){
+          return 0;
+      }
+      var numbers = [];
+      for (var i = 0; i < arr.length; i++){
+          if(typeof arr[i] === "number"){
+              numbers.push(arr[i]);
+          }
+      }
+      if(numbers.length === 0){
+          return 0;
+      }
+      var smallestNum = numbers[0];
+      for (var i = 1; i < numbers.length; i++){
+          if(numbers[i] < smallestNum){
+              smallestNum = numbers[i];
+          }
+      }
+      return smallestNum;
+  }
+
+  var output = findSmallestNumberAmongMixedElements([4, 'lincoln', 9, 'octopus']);
+  console.log(output); //4
+
+  //=====================================================
+  /*Given an array of mixed element types, return the 
+    longest string in the given array
+  */
+  //======================================================
+
+  function getLongestWordOfMixedElements(arr){
+      var words = [];
+      if(arr.length === 0){
+          return "";
+      }
+      for(var i = 0; i < arr.length; i++){
+          if(typeof arr[i] === "string"){
+              words.push(arr[i]);
+          }
+      }
+      if(words.length === 0){
+          return "";
+      }
+      var longestWord = words[0];
+      for (var i = 1; i < words.length; i++){
+          if(words[i].length > longestWord.length){
+              longestWord = words[i];
+          }
+      }
+      return longestWord;
+  }
+
+  var output = getLongestWordOfMixedElements([3,'word',5,'up',3,1]);
+  console.log(output); //'word'
+
+  //=====================================================
+  /*Given an array of mixed elements, return the largest    
+    number in the given array
+  */
+  //======================================================
+
+  function getLargestNumberAmongMixedElements(arr){
+      var numbers = [];
+      if(arr.length === 0){
+          return 0;
+      }
+      for(var i = 0; i < arr.length; i++){
+          if(typeof arr[i] === "number"){
+              numbers.push(arr[i]);
+          }
+      }
+      if(numbers.length === 0){
+          return 0;
+      }
+      var largestNumber = numbers[0];
+      for (var i = 1; i < numbers.length; i++){
+          if(numbers[i] > largestNumber){
+              largestNumber = numbers[i];
+          }
+      }
+      return largestNumber;
+  }
+
+  var output = getLargestNumberAmongMixedElements([3,'word', 5,'up',3,1]);
+  console.log(output); //5
+
+
+  //=====================================================
+  /*Given an array, return an object with: 1)first element
+    of the array as the objects key 2)the last element
+    of the array as the key's value
+  */
+  //======================================================
+
+
+  function transformFirstAndLast(array){
+      var result = {};
+      var key = array[0];
+      var value = array[array.length - 1];
+      result[key] = value;
+      return result;
+  }
+
+  var input = transformFirstAndLast(['Queen', 'Elizabeth', 'Of Hearts', 'Beyonce']);
+  console.log(input); // {Queen: 'Beyonce'}
+
+  var input2 = transformFirstAndLast(['Kevin', 'Bacon', 'Love', 'Hart', 'Costner', 'Coleman']);
+  console.log(input2); // {Kevin: 'Coleman'}
+
+  //=====================================================
+  /*Write a function that takes an array of arrays, and 
+    returns an object with each pair of elements in the
+    array as a key-value pair
+  */
+  //======================================================
+
+
+
+
+  function transformArrayToObject(array){
+    var result = {};
+    for (var i = 0; i < array.length; i++){
+        var key = array[i][0];
+        var value = array[i][1];
+        result[key] = value;
+    }
+    return result;
+}
+
+var input = [
+    ['make', 'model'], 
+    ['model','Mustang'], 
+    ['year', 1964]
+  ];
+
+var arrayToObject = transformArrayToObject(input);
+console.log(arrayToObject);
+
+//=====================================================
+  /*Write a function that takes an array of arrays, and 
+    returns an object with each pair of elements in the
+    array as a key-value pair
+  */
+//======================================================
+
+function transformEmployeeData(employeeData){
+    var container = [];
+    for (var i = 0; i < employeeData.length; i++){
+        var personArray = employeeData[i];
+        var personObject = {};
+        for(var j = 0; j < personArray.length; j++){
+            var key = personArray[j][0];
+            var value = personArray[j][1];
+            personObject[key] = value;
+        }
+        container.push(personObject);
+    }
+    return container;
+}
+
+var input = [
+    [
+        ['firstName', 'Joe'], ['lastName', 'Blow'], ['age', 42], ['role', 'clerk']
+    ],
+    [
+        ['firstName', 'Mary'], ['lastName', 'Jenkins'], ['age', 36], ['role', 'manager']
+    ]
+];
+
+var output = transformEmployeeData(input);
+console.log(output);
+
+
+
+
+
